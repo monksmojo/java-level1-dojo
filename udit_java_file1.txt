@@ -1,0 +1,2494 @@
+Q-WAP to show different String Functions in java?
+
+package java_lab;
+public class Java_lab {
+    public static void main(String[] args) {
+        System.out.println("welcome");
+        Strings_class s1=new Strings_class()
+    }
+}
+public class Strings_class {
+    Strings_class(){
+        System.out.println("Inside Strings class \n");
+        System.out.println("Testing Various string class function\n");
+        
+        char ch1[]={'a','b','c','d','e','f','g'};
+        String s1=new String(ch1);
+        System.out.println("creating a string out of charater array");
+        System.out.println(s1);
+      
+        String s2=new String(ch1,2,4);
+        System.out.println("creating a substring out of charater array");
+        System.out.println(s2);
+        
+        byte b1[]={67,68,69,70,71};
+        String s3=new String(b1);
+        System.out.println("creating a string out of byte array\n"+s3);
+        
+        
+        String s4=new String(b1,2,3);
+        System.out.println("creating a substring out of charater array\n"+s4);
+        
+        char ch2[]=new char[s2.length()];
+        byte b2[]=new byte[s2.length()];
+        s2.getChars(0, 3, ch2, 0);
+        b2=s2.getBytes();
+        System.out.println("converting string into character array\n");
+        for(int i=0;i<ch2.length;i++)
+        {
+            System.out.println(ch2[i]);
+        }
+        
+        System.out.println("converting string into bytes array\n");
+        for(int i=0;i<b2.length;i++)
+        {
+            System.out.println(b2[i]);
+        }
+        
+        String l1="Collateral";
+        String l2="Damage";
+        String l3="damage";
+        System.out.println("lentgh of a string \t"+l1.length());
+        System.out.println("concatination of two strings\n"+l1+l2);
+        System.out.println(l1.charAt(0)+"\t char at 0 index using charat function");
+        if(l2.equals(l3))
+        {
+            System.out.println("two strings are eqaual with case senstivity\n");
+        }
+        else if(l2.equalsIgnoreCase(l3))
+        {
+            System.out.println("two strings are eqaual without case senstivity\n");
+        }
+        
+        else
+        {
+            System.out.println("two strings are not equal");
+        }
+        
+        System.out.println("comparing of two strings with compare to function \t"+l1.compareTo(l2));
+        System.out.println("converting string into upper case \t"+l1.toUpperCase());
+        System.out.println("converting string into lower case \t"+l1.toLowerCase());
+    }
+}
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q-WAP to show Stack Operation in Java?
+package java_lab;
+public class Java_lab {
+    public static void main(String[] args) {
+        System.out.println("welcome");
+        Stack_class st1=new Stack_class();
+        st1.create_stack();
+        st1.pop_stack();
+        st1.push_stack(99);
+        st1.print_stack();
+    }
+}
+public class Stack_class {
+    int top;
+    int[] stack=new int[10];
+    
+    Stack_class(){
+        top=-1;
+    }
+    
+    void create_stack(){
+        System.out.println("Creation of stack\n");
+        for(int i=0; i<stack.length-1; i++)
+        {
+            stack[i]=i;
+            ++top;
+        }
+    }
+    
+    void pop_stack(){
+        System.out.println("Pop operation on Stack");
+        if(top<=-1){
+            System.out.println("underflow\n");
+        }
+        else{
+        int del=stack[top];
+        System.out.println("element poped out of stack is   "+del);
+        --top;
+        }
+    }
+    
+    void push_stack(int ele){
+        System.out.println("push operation on Stack");
+        if(top>stack.length){
+            System.out.println("overflow\n");
+        }
+        else{
+            ++top;
+            stack[top]=ele;
+        }
+    }
+    
+    void print_stack(){
+        System.out.println("printing of stack");
+        for(int i=0; i<=top; i++){
+            System.out.println(stack[i]);
+        }
+    }
+}
+
+ 
+
+Q-WAP to show inheritance from same and different package 
+from in Java?
+package java_lab;
+public class Java_lab {
+  public static void main(String[] args) {
+        System.out.println("welcome");
+Call_class alpha=new Call_class();
+Call_class beta=new Call_class();
+    }
+}
+package java_lab;
+public class Alpha_class {    
+public Alpha_class(){
+        System.out.println("calling of class from same package java_lab");
+    }
+}
+
+package java_lab.package0;
+public class Beta_class {
+    public Beta_class(){
+        System.out.println("calling of class from diffrent package java_lab.package0");
+    }
+}
+
+
+package java_lab;
+public class Call_class extends Alpha_class {
+    Call_class(){
+       super();
+    }
+}
+
+public class Call_class extends java_lab.package0.Beta_class{
+    Call_class(){
+        super();  }}
+ 
+ 
+
+
+Q-wap in java to show factorial of a no. using recursion?
+Ans:-
+package lab1;
+public class Lab1 {
+    public static void main(String[] args) {
+    
+        // TODO code application logic here
+        Factorial_class f1= new Factorial_class();
+        int result=f1.fact(5);
+        System.out.println("factorial of 5 is\n"+result);
+    }
+}
+package lab1;
+public class Factorial_class {
+    int fact(int   n)
+    {
+        if(n==1 || n==0)
+        {
+            return 1;
+        }
+        return( n * fact(n-1));
+        
+    }}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q-wap in java to override ToString() function in java?
+ANS-
+package java_lab;
+public class Java_lab {
+    public static void main(String[] args) {
+       Box_Tostring b1=new Box_Tostring(5,4);
+       System.out.println(b1);
+    }
+}
+package java_lab;
+public class Box_Tostring {
+    int length;
+    int breadth;
+    Box_Tostring(int l,int b){
+        length=l;
+        breadth=b;
+    }
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String toString(){
+        return String.format("length = " + this.length + " bredth = "+ this.breadth);
+    }
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q-wap in java to show Integer number wrapper class?
+Ans-
+package java_lab;
+/**
+ *
+ * @author monks_mojo
+ */
+public class Java_lab {
+    public static void main(String[] args) {
+        double b=3.145763;
+        char c='A';
+        int a=10;
+        String str1="777";
+        String str2="hello";
+        Wrapper_class w1=new Wrapper_class(a,str1);
+    }
+}
+package java_lab;
+
+public class Wrapper_class {
+    Wrapper_class(int i, String str)
+    {
+        System.out.println("integer no. wrapper class \n");
+        Integer i1=new Integer(i);
+        Integer i2=new Integer(str);
+        Integer i3=Integer.valueOf("76");
+        
+        System.out.println("the INT value "+i2.intValue());
+        System.out.println("the FLOAT value "+i1.floatValue());
+        System.out.println("the INT to String value "+i1.toString());
+        System.out.println("the BYTE value "+i2.byteValue());
+        System.out.println("the doubleValue value "+i2.doubleValue());
+        System.out.println("the longValue value "+i3.longValue());
+        System.out.println("the shortValue value "+i3.shortValue());
+         System.out.println("Invoking object :"+i1+" Called Object :"+i2);
+        System.out.println(i1.compareTo(i2));
+        System.out.println("Calling Integer object i1:"+i1+" Called Integer Object i2:"+i1);
+        System.out.println(i1.equals(i1));
+        System.out.println("Returning simple data type");
+        System.out.println(Integer.parseInt(str));
+    }  
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q-wap in java to show Double number wrapper class?
+Ans-
+package java_lab;
+/**
+ *
+ * @author monks_mojo
+ */
+public class Java_lab {
+    public static void main(String[] args) {
+        double b=3.145763;
+        char c='A';
+        int a=10;
+        String str1="777";
+        String str2="hello";
+        Wrapper_class w1=new Wrapper_class(b,str1);
+    }
+}
+package java_lab;
+public class Wrapper_class {
+    Wrapper_class(double d, String str){
+        Double d1=new Double(d);
+        Double d2=new Double(str);
+        Double d3=Double.valueOf("76.88");
+        
+        System.out.println("The DOUBLE value "+d2.doubleValue());
+        System.out.println("The INT value "+d1.intValue());
+        System.out.println("The BYTE value "+d1.byteValue());
+        System.out.println("The FLOAT value "+d2.floatValue());
+        System.out.println("The LONG value "+d2.longValue());
+        System.out.println("The SHORT value "+d3.shortValue());
+        System.out.println("The STRING "+d3.toString());
+        System.out.println("Invoking object :"+d1+" Called Object :"+d2);
+        System.out.println(d1.compareTo(d2));
+        System.out.println("Invoking object :"+d1+" Called Object :"+d2);
+        System.out.println(d1.equals(d2));
+        System.out.println("Returning simple data type");
+        System.out.println(Double.parseDouble(str));
+   
+    }    
+}
+  
+Q-wap in java to show Character wrapper class?
+Ans-
+package java_lab;
+/**
+ *
+ * @author monks_mojo
+ */
+public class Java_lab {
+    public static void main(String[] args) {
+        double b=3.145763;
+        char c='A';
+        int a=10;
+        String str1="777";
+        String str2="hello";
+        Wrapper_class w1=new Wrapper_class(b,str1);
+    }
+}
+package java_lab;
+
+        Wrapper_class(char ch, String str){
+        Character ch1=new Character(ch);
+        char[] ch2= str.toCharArray();
+        System.out.println("Is it a letter"+Character.isLetter(ch1));
+        System.out.println(ch2);
+        System.out.println("Is it a Digit"+Character.isDigit(ch1));
+        System.out.println("Is it a uppercase"+Character.isUpperCase(ch1));
+        System.out.println("Is it a lowercase"+Character.isLowerCase(ch1));
+        System.out.println("To uppercase"+Character.toUpperCase(ch1));
+        System.out.println("To lowercase"+Character.toLowerCase(ch1));
+    }
+            
+       
+}
+ 
+
+
+
+
+
+Q-wap in java to implement a MoneyChanger Interface which 
+converts your currency into dollars and vice-versa?
+package java_lab;
+public class Java_lab {
+    public static void main(String[] args) {
+    
+        MoneyConvertor i2d=new MoneyConvertor(700);
+        i2d.To_dollar();
+        MoneyConvertor d2=new MoneyConvertor(8);
+        d2.Dollar_to();
+  }
+}
+package java_lab;
+public interface MoneyChanger {
+    void To_dollar();
+    void Dollar_to();
+}
+package java_lab;
+public class MoneyConvertor implements MoneyChanger {
+    float Currency;
+    MoneyConvertor( int c){
+        Currency=c;
+    }
+    @Override
+    public void To_dollar(){
+        System.out.println("your currency into dollar is = "+Currency/70);
+    }
+    @Override
+    public void Dollar_to(){
+        System.out.println("Dollar to inr = "+Currency*70);
+        System.out.println("Dollar to nepalese rupee = "+Currency*100);
+        System.out.println("Dollar to bangladeah daka = "+Currency*111);
+    }
+}
+ 
+
+
+
+
+
+
+Q-wap in java to implement a Stack Interface which shows stack push 
+and pop operation using static and dynamic array?
+package java_lab;
+public class Java_lab {
+    public static void main(String[] args) {
+DynamicArray da=new DynamicArray(4);
+        da.push(10);
+        da.push(20);
+        da.push(30);
+        da.push(40);
+        da.push(50);
+        da.pop();
+        da.pop();
+        da.stack_print();
+
+       FixedArray f1=new FixedArray(5);
+        f1.push(10);
+        f1.push(20);
+        f1.push(30);
+        f1.push(40);
+        f1.push(50);
+        f1.pop();
+        f1.pop();
+        f1.stack_print();
+        
+  }
+}
+package java_lab;
+public interface StackInterface {
+    void push(int ele);
+    void pop();
+}
+package java_lab;
+public class FixedArray implements StackInterface{
+    int[] st;
+    int top;
+    int size=0;
+    
+    FixedArray(int s){
+        size=s;
+        top=-1;
+        st= new int[size];
+    }
+
+    @Override
+    public void push(int ele) {
+        if(top >= size){
+            System.out.println("OVERFLOW");
+            st= new int[size*2];
+        }
+        else{
+            System.out.println("element pushed into stack"+ele);
+            ++top;
+            st[top] = ele;
+        }
+    }
+
+    @Override
+    public void pop() {
+        if(top<=-1){
+            System.out.println("UNDERFLOW");
+        }
+        else{
+            System.out.println("element poped out of stack is "+st[top]);
+            --top;
+            
+        }
+    }
+    
+    void stack_print(){
+        System.out.println("Printing of stack");
+        for(int i=0; i <= top;i++){
+            System.out.println(st[i]);
+        }
+    }
+    
+}
+package java_lab;
+public class DynamicArray {
+    int[] st;
+    int top;
+    int size=0;
+    
+    DynamicArray(int s){
+        size=s;
+        top=-1;
+        st= new int[size];
+    }
+
+    public void push(int ele) {
+        if(top >= (size-1) ){
+            System.out.println("OVERFLOW");
+            System.out.println("INCREASING THE SIZE OF ARRAY");
+            int temp[];
+            temp = new int[size*2];
+            for(int i=0; i <= top; i++)
+            {
+                temp[i]=st[i];
+            }
+            st=temp;
+            ++top;
+            st[top]=ele;
+            System.out.println("element pushed into stack"+ele);
+                    
+        }
+        
+        else{
+            ++top;
+            st[top] = ele;
+            System.out.println("element pushed into stack"+ele);
+        }
+    }
+
+    public void pop() {
+        if(top<=-1){
+            System.out.println("UNDERFLOW");
+        }
+        else{
+            System.out.println("element poped out of stack is "+st[top]);
+            --top;
+            
+        }
+    }
+    
+    void stack_print(){
+        for(int i=0; i<= top;i++){
+            System.out.println(st[i]);
+        }
+    }
+}
+                  
+Q-wap in java to implement a IntrestRate Interface which different 
+interest rate on savings and fixed deposit amount and return interest 
+after 1 year?
+package java_lab;
+public class Java_lab { 
+    public static void main(String[] args) {
+        
+        MyAccount a1=new MyAccount(20000,50000,2);
+        a1.passbook();
+        a1.calculate_amnt();
+        MyAccount a2=new MyAccount(40000,80000,8);
+        a2.passbook();
+        a2.calculate_amnt();
+        }
+}
+package java_lab;
+public interface IntrestRate {
+   final static double SBR = 0.46;
+   final static double  FDR1 = 0.62;
+   final static double FDR2 = 0.72;
+    void calculate_amnt();
+}
+
+package java_lab;
+public class MyAccount implements IntrestRate {
+    int sa_amount;
+    int time;
+    int fd_amount;
+    float si_sa;
+    float si_fda; 
+    MyAccount(int sa,int fda, int t){
+        sa_amount=sa;
+        time=t;
+       fd_amount=fda;
+    }
+    
+    void passbook(){
+        System.out.println("Amount in saving account ="+sa_amount);
+        System.out.println("fixed amount of "+fd_amount+" is done for "+time+" time");
+    }
+
+    @Override
+    public void calculate_amnt() {
+        si_sa=(float) ((sa_amount*SBR*1)/100);
+        System.out.println("intrest on savings acount amount after 1 year is ="+si_sa);
+        if(time >= 5){
+        si_fda=(float) ((fd_amount*FDR2*1)/100);
+        System.out.println("intrest on fixed acount amount after 1 year is ="+si_fda);
+        }
+        else{
+         si_fda=(float) ((fd_amount*FDR1*1)/100);
+         System.out.println("intrest on fixed acount amount after 1 year is ="+si_fda);
+        }
+        
+    }
+
+
+    
+}
+ 
+
+
+Q-WAP to Exception Handling in java?
+
+Ans-
+package java_lab;
+public class Java_lab {
+    public static void main(String[] args) {
+                try {Passbook p1=new Passbook(800,7);
+        p1.deposit(1000);
+        System.out.println(p1);
+        p1.withdrawl(1200);
+        System.out.println(p1);
+        p1.withdrawl(200);
+        }
+        catch(PassbookException pe){
+            System.out.println(pe);
+        }
+        
+}
+package java_lab;
+/**
+ *
+ * @author monks_mojo
+ */
+public class Passbook {
+    double acc_bal;
+    final double min_bal=500;
+    int acc_id;
+    
+    Passbook(double bal, int id){
+       acc_bal=bal;
+       acc_id=id;
+    }
+    
+    void deposit(double d_amount ){
+        acc_bal+=d_amount;
+    }
+    
+    void withdrawl(double w_amount)throws PassbookException {
+       double temp_bal=acc_bal- w_amount;
+       if(temp_bal<=min_bal){
+           throw new PassbookException(temp_bal);
+       }
+       else{
+           acc_bal-=w_amount;
+       }
+       
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String toString(){
+        return String.format("current balance is "+this.acc_bal+"of account id"+this.acc_id);
+    }
+}
+package java_lab;
+
+/**
+ *
+ * @author monks_mojo
+ */
+public class PassbookException extends Exception {
+    double low_bal;
+    PassbookException(double a){
+        low_bal=a;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String toString(){
+        return String.format("cannot withdrawl this much amount\n leads to low balance of"+low_bal);
+        
+    }
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q-WAP to show Nested Exception Handling in java?
+
+Ans-
+case-1 : outer try throw exception 
+package java_lab;
+
+@author monks_mojo
+
+public class Java_lab {
+    public static void main(String[] args) {
+        
+        int a=8,b=0;
+        int arr[]={10,8,7,6};
+        double result;
+        
+        try{
+            result=a/b;
+            System.out.println("Devision Result="+result);
+            try{
+                System.out.println("Array element"+arr[4]);
+            }finally{
+                
+                System.out.println("nested try dosen't have its catch so going for outer try catch");
+            }
+        }
+        catch(ArithmeticException ae){
+                System.out.println("Cannot devide by 0");
+            }
+        catch(Exception e){
+            System.out.println("Array out of index or no. is devided by zero");
+        }
+}
+ 
+
+case-2 : inner  try throw exception with appropriate catch
+package java_lab;
+
+* @author monks_mojo
+public class Java_lab {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        int a=8,b=0;
+        int arr[]={10,8,7,6};
+        double result;
+        
+        try{
+            result=a/b;
+            System.out.println("Devision Result="+result);
+            try{
+                System.out.println("Array element"+arr[4]);
+            }
+        catch(ArrayIndexOutOfBoundsException ae){
+            System.out.println("Array out of Index");
+        }
+
+
+        }
+        catch(ArithmeticException ae){
+                System.out.println("Cannot devide by 0");
+            }
+        catch(Exception e){
+            System.out.println("Array out of index or no. is devided by zero");
+        }
+  }
+ 
+case-3 : inner  try throw exception witjout catch defined with inner try
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package java_lab;
+
+/**
+ *
+ * @author monks_mojo
+ */
+public class Java_lab {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        int a=8,b=0;
+        int arr[]={10,8,7,6};
+        double result;
+        
+        try{
+            result=a/b;
+            System.out.println("Devision Result="+result);
+            try{
+                System.out.println("Array element"+arr[4]);
+            }finally{
+                
+                System.out.println("nested try dosen't have its catch so going for outer try catch");
+            }
+        }
+        catch(ArrayIndexOutOfBoundsException ae){
+            System.out.println("Array out of Index");
+        }
+        catch(ArithmeticException ae){
+                System.out.println("Cannot devide by 0");
+            }
+        catch(Exception e){
+            System.out.println("Array out of index or no. is devided by zero");
+        }
+  }
+ 
+
+
+
+
+Q-WAP to show Custom Exception Handling in java?
+Ans-
+package java_lab;
+* @author monks_mojo
+public class Java_lab {
+    public static void main(String[] args) {
+        try{
+            Ride r1=new Ride("Roller Coster",300,2.0);
+            System.out.println(r1);
+            Person p1=new Person(23,"monks mojo",3.5);
+            System.out.println(p1);
+            r1.check_height(p1);
+            Person p2=new Person(22,"freddy mercury",1.5);
+            System.out.println(p2);
+            r1.check_height(p2);
+        }catch(Height_exception he){
+         System.out.println(he);   
+        }
+  }
+package java_lab;
+public class Person {
+    int age;
+    String name;
+    double height;
+    
+    Person(int a,String n, double h){
+        age=a;
+        name=n;
+        height=h;
+    }
+    public double get_height(){
+        return height;
+    }
+    
+    public String get_name(){
+        return name;
+    }
+    @Override
+    public String toString(){
+        return String.format("name is "+name+" age= "+age+" & hieght= "+height);
+    }}\
+package java_lab;
+class Height_exception extends Exception {
+    String rider_name;
+    double rider_height;
+    double min_height;
+    
+ Height_exception(Person p0,double temp_height,double height_required ){
+     rider_name=p0.get_name();
+     rider_height=temp_height;
+     min_height=height_required;
+ }
+     public String toString(){
+        return String.format("Rider "+rider_name+"with height "+rider_height+" cannot ride becuase 
+minimum height is "+min_height);
+    }
+}
+package java_lab;
+
+public class Ride {
+    String ride_name;
+    int cost;
+    double height_required;
+    
+    Ride(String rn,int c,double hr){
+       ride_name=rn;
+       cost=c;
+       height_required=hr;
+    }    
+    void check_height(Person p0) throws Height_exception{
+        double temp_height=p0.get_height();
+        if(temp_height<height_required){
+            throw new Height_exception(p0,temp_height,height_required);
+        }
+        else{
+            System.out.println(p0.get_name()+" can go on this ride");
+        }
+    }
+    
+    @Override
+    public String toString(){
+        return String.format("Ride = "+ride_name +" cost= "+cost+" & hieght required= "+height_required);
+    }
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+Q-WAP to show main thread in java by implementing runnable class?
+
+
+Ans-
+package java_lab;
+* @author monks_mojo
+ public class Java_lab {
+    public static void main(String[] args) {
+        
+        Thread t1=Thread.currentThread();
+        System.out.println(t1);
+        t1.setName("Main Thread");
+        System.out.println("name of the thread is--"+t1.getName());
+}
+ 
+
+
+
+
+
+
+Q-WAP to show main thread and a child thread in java by implementing 
+runnable class?
+ 
+Ans- 
+
+package java_lab;
+* @author monks_mojo
+public class Java_lab {
+     * @param args the command line arguments
+    public static void main(String[] args) {
+      One_Thread ot1 = new One_Thread();
+        Thread t1=Thread.currentThread();
+        System.out.println(t1);
+        t1.setName("String Length Thread");
+        String r=ot1.return_string();
+        System.out.println("Executing "+t1.getName());
+        System.out.println("Lenght of String "+r.length());
+        System.out.println("termination "+t1.getName());
+}
+package java_lab;
+* @author monks_mojo
+ */
+public class One_Thread implements Runnable  {
+    String a="hello";
+    String b="world";
+    One_Thread(){
+        Thread t1= new Thread(this,"concatinator");
+        System.out.println(t1+" is born");
+        t1.start();
+    }
+    
+    String return_string(){
+        String c;
+        c=a+b;
+        return c;
+    }
+
+    @Override
+    public void run() {
+        System.out.println(Thread.currentThread());
+        String c=a+b;
+        System.out.println("Concatination of two strings "+ a +"  "+ b+"  " +c);
+        System.out.println("Termination of  "+Thread.currentThread());
+    } 
+Q-WAP to show main thread and a multi child thread in java by 
+implementing runnable class?
+
+Ans-
+package java_lab;
+public class Three_Thread implements Runnable {
+   int no=9;
+   Three_Thread(){
+       Thread tt1=new Thread(this,"even_thread");
+       Thread tt2=new Thread(this,"odd_thread");
+       Thread tt3=new Thread(this,"prime_thread");
+       tt1.start();
+       tt2.start();
+       tt3.start();
+   }
+   
+   public int return_no(){
+       return no;
+   }
+
+    @Override
+    public void run() {
+        Thread tt0=Thread.currentThread();
+        String tn=tt0.getName();
+        if(tn.equals("even_thread")) {
+            System.out.println("Excution of-> "+tn);
+            if(no%2==0){
+              System.out.println(no+" Is Even");
+            }
+            else{
+                System.out.println(no+" Is Not Even");
+            }
+            System.out.println("temination of-> "+tn);
+        }
+        
+        
+        else if(tn.equals("odd_thread")){
+            System.out.println("Excution of-> "+tn);
+            if(no%2!=0){
+              System.out.println(no+" Is odd");
+            }
+            else{
+                System.out.println(no+" Is Not odd");
+            }
+            System.out.println("temination of-> "+tn);
+        }
+        
+        else{
+            int flag=0;
+            System.out.println("Excution of-> "+tn);
+            for(int i=2; i<no; i++){
+                if(no%i == 0){
+                flag=1;    
+                }
+            }
+            if(flag==1){
+                System.out.println(no+" Is Not Prime");
+            }
+            else{
+                System.out.println(no+" Is Prime");
+            }
+                
+            
+            System.out.println("temination of-> "+tn);
+        }    
+        
+       }
+    }
+package java_lab;
+* @author monks_mojo
+ public class Java_lab {
+    public static void main(String[] args) {
+        
+      Three_Thread obj1=new Three_Thread();
+        
+        Thread mt=new Thread();
+        mt.setName("mainThread");
+        String mt_name=mt.getName();
+        System.out.println("excution of ->"+mt_name);
+        int no=obj1.return_no();
+        if(no>=10){
+            System.out.println(no+" Greater than 10");
+            
+        }
+        else{
+            System.out.println(no+" less than 10");
+        }
+        System.out.println("termination of ->"+mt_name);
+       }
+ 
+
+
+Q-WAP to show multi child thread in java by extending thread class?
+Ans-
+package java_lab;
+ * @author monks_mojo
+ public class Java_lab {
+    public static void main(String[] args) {
+        T_threechild tc1=new T_threechild("even_thread");
+        T_threechild tc2=new T_threechild("odd_thread");
+        T_threechild tc3=new T_threechild("prime_thread");
+        }
+package java_lab;
+public class T_threechild extends Thread{
+    int no=6;
+    T_threechild(String name){
+     super(name);   
+     System.out.println("Creation of thread child by extending thread class");   
+     start();
+    }
+    @Override
+    public void run(){
+        Thread tt0=Thread.currentThread();
+        String tn=tt0.getName();
+        if(tn.equals("even_thread")) {
+            System.out.println("Excution of-> "+tn);
+            if(no%2==0){
+              System.out.println(no+" Is Even");
+            }
+            else{
+                System.out.println(no+" Is Not Even");
+            }
+            System.out.println("temination of-> "+tn);
+        }
+        
+        
+        else if(tn.equals("odd_thread")){
+            System.out.println("Excution of-> "+tn);
+            if(no%2!=0){
+              System.out.println(no+" Is odd");
+            }
+            else{
+                System.out.println(no+" Is Not odd");
+            }
+            System.out.println("temination of-> "+tn);
+        }
+        
+        else{
+            int flag=0;
+            System.out.println("Excution of-> "+tn);
+            for(int i=2; i<no; i++){
+                if(no%i == 0){
+                flag=1;    
+                }
+            }
+            if(flag==1){
+                System.out.println(no+" Is Not Prime");
+            }
+            else{
+                System.out.println(no+" Is Prime");
+           }            
+            System.out.println("temination of-> "+tn);
+        }    
+        
+       }
+    }
+ 
+
+
+Q-WAP to show  setPriority and thread.sleep thread class function  in 
+java by extending thread class?
+
+Ans-
+package java_lab;
+* @author monks_mojo
+public class FN_thread1 extends Thread {
+    String s1="Hello";
+    String s2="Darkness";
+    static int p=3;
+    public Thread t1;
+    FN_thread1(String name){
+        super(name);
+        System.out.println("creating thread by extending the thread class");
+        start();
+    }
+    @Override
+    public void run(){
+        t1=Thread.currentThread();
+        String to_name=t1.getName();
+        if(to_name.equals("concatinator")){
+            t1.setPriority(++p);
+            System.out.println(to_name+"execution started with prioroty"+ p);
+            String s3=s1+s2;
+            System.out.println("concatination of "+ s1+" "+s2+" is "+s3);
+        }
+        else{
+            t1.setPriority(++p);
+            System.out.println(to_name+"execution started with priority"+ p);
+            String s3=s1+s2;
+            System.out.println("length of string"+ s3+" is "+s3.length());
+            
+        }
+    }}
+package java_lab;
+* @author monks_mojo
+public class Java_lab {
+    public static void main(String[] args) {
+    Thread mt=Thread.currentThread();
+        mt.setName("main Thread");
+        FN_thread1 fn1=new FN_thread1("concatinator");
+        try{
+            System.out.println(mt.getName()+"->started execution with priotity->"+mt.getPriority());
+            Thread.sleep(200);
+            System.out.println(mt.getName()+"->has been put to sleep");
+        }catch(InterruptedException e1){
+            System.out.println("Cant put main thread to sleep ");
+        }
+        System.out.println(mt.getName()+"->has woken up");
+        FN_thread1 fn2=new FN_thread1("length_calculator");
+        System.out.println(mt.getName()+"->has terminated");
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q-WAP to show  join thread class function  in java by extending thread 
+class?
+
+Ans-
+package java_lab;
+* @author  monks_mojo
+public class FN_thread2 implements Runnable {
+    int no=6;
+    public Thread tf;
+
+    FN_thread2(String name){
+        tf=new Thread(this,name);
+        tf.start();
+    }
+    @Override
+    public void run() {
+        String tf_name=tf.getName();
+        if(tf_name.equals("odd_thread")) {
+            System.out.println("Excution of-> "+tf_name);
+            if(no%2!=0){
+                System.out.println(no+" Is odd");
+            }
+            else{
+                System.out.println(no+" Is Not odd");
+            }
+            System.out.println("Temination of-> "+tf_name);
+        }
+        
+        
+        if(tf_name.equals("even_thread")) {
+            System.out.println("Excution of-> "+tf_name);
+            if(no%2==0){
+                System.out.println(no+" Is Even");
+            }
+            else{
+                System.out.println(no+" Is Not Even");
+            }
+            System.out.println("temination of-> "+tf_name);
+        }
+         }
+  }
+package java_lab;
+* @author monks_mojo
+public class Java_lab {
+     * @param args the command line arguments
+    public static void main(String[] args) {
+        Thread mt=Thread.currentThread();
+        mt.setName("main Thread");
+        System.out.println(mt.getName()+"->started execution ");
+        FN_thread2 fn2=new FN_thread2("even_thread");
+        String tf_name = fn2.tf.getName();
+        if(tf_name.equals("even_thread")){
+            try{
+             fn2.tf.join();
+             System.out.println(mt.getName()+"->is on hold ");
+            }catch(InterruptedException e1){
+                System.out.println("Cant put main thread to wait");
+            }
+            FN_thread2 fn22=new FN_thread2("odd_thread");
+            System.out.println(mt.getName()+"->is terminated");
+        }
+ 
+
+
+
+
+
+
+Q-WAP to show  synchronized public void method by implementing 
+Runnable class   in java by extending thread class?
+Ans-
+package java_lab;
+* @author  monks_mojo
+public class Call_me {
+    synchronized public void call(String name){
+    System.out.println("[ we are starting"+name +"but going to sleep");
+    try{
+        Thread t1=Thread.currentThread();
+        System.out.println("we are making->"+t1.getName()+"-> to sleep");
+        Thread.sleep(500);
+    }catch(InterruptedException e1){
+        Thread t1=Thread.currentThread();
+        System.out.println(t1.getName()+"-> cant go to sleep");
+    }
+    System.out.println(name +"->just woke up GOODBYE ALL MY FRNDS ]");
+}
+    
+}
+package java_lab;
+
+public class Caller implements Runnable {
+    Call_me target;
+    String name;
+    Thread t1;    
+Caller(Call_me t,String n){
+        target=t;
+        name=n;
+        t1=new Thread(this,name);
+        System.out.println(t1.getName()+"-> is born");
+        t1.start();
+    }
+
+    @Override
+    public void run() {
+        System.out.println(t1.getName()+"-> is executing");
+        target.call(name);
+        System.out.println(t1.getName()+"-> is terminated");
+    }
+    
+}
+package java_lab;
+
+/**
+ *
+ * @author monks_mojo
+ */
+public class Java_lab {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+       Call_me target=new Call_me();
+       Caller c1=new Caller(target,"c1.child");
+       Caller c2=new Caller(target,"c2.child");
+}
+ 
+
+
+
+
+
+
+
+
+
+
+Q-WAP to show booking and cancellation of tickets simultaneously?
+
+Ans-
+package java_lab;
+* @author  monks_mojo
+public class Train {
+final int total_ticket=40;
+    static int occupied=10;
+    synchronized public int check(int ticket){
+        String thread_name=Thread.currentThread().getName();
+        System.out.println(thread_name);
+        if(thread_name.equals("BookTicket")){
+            System.out.println("total tickets "+total_ticket);
+            System.out.println("you want to book"+ticket);
+                if(ticket+occupied<=total_ticket){
+                    System.out.println("seats left "+(total_ticket-occupied));
+                    occupied+=ticket;
+                    return 1;
+                }
+        }
+        
+        else if(thread_name.equals("CancelTicket")){
+            System.out.println("total tickets "+total_ticket);
+            System.out.println("occupied seats "+occupied);
+            System.out.println("you want to cancel"+ticket);
+            if(ticket <= occupied){
+                occupied-=ticket;
+                System.out.println("seats left "+(total_ticket-occupied));
+                return 1;
+        }  
+        }
+            return 0;
+    }
+}
+package java_lab;
+public class Booking implements Runnable {
+String p_name;
+    int age;
+    int bticket=0;
+    int cticket=0;
+    Train seat;
+    Booking(String pn, int a){
+        p_name=pn;
+        age=a;
+        seat=new Train();
+        
+    }
+    
+    
+@Override
+    public String toString(){
+        return String.format("Passenger name = " + this.p_name + " age= "+ this.age +" has 
+booked"+bticket+" tickets and has cancelled "+ cticket+" tickets");
+    }
+    
+    void book_seat(int pess){
+        bticket=pess;
+        Thread bt= new Thread(this,"BookTicket");
+        bt.start();
+    }
+    
+    void cancel_seats(int pess){
+        System.out.println("Cancillation of ticket");
+        cticket=pess;
+        Thread ct= new Thread(this,"CancelTicket");
+        ct.start();
+        
+    }
+
+    @Override
+    public void run() {
+        Thread current=Thread.currentThread();
+        String ct_name=current.getName();
+        
+        if(ct_name.equals("BookTicket")){
+            System.out.println("Booking in progress");
+            int res = seat.check(bticket);
+            if(res==1){
+                System.out.println("Your"+bticket+"tickets have been booked" );
+            }
+            else{
+                System.out.println("Your"+bticket+"cannot be booked");
+                System.out.println("no vacant seats available");
+            }
+        }
+        
+        else{
+            System.out.println("Cancillation in progress");
+            if(cticket < bticket){
+              int res=seat.check(cticket);
+              if(res==1){
+                  System.out.println("Your"+cticket+"tickets have been cancelled" );
+              }
+            }
+            else{
+                System.out.println("Your"+cticket+"cannot be cancelled");
+                System.out.println("cancillation more than booking seats");
+            }
+        }
+    }
+
+package java_lab;
+
+ * @author monks_mojo
+public class Java_lab {
+    public static void main(String[] args) {
+        
+        Booking gratel=new Booking("gratel",55);
+        gratel.book_seat(10);
+        gratel.cancel_seats(8);    
+
+ }
+ 
+
+
+
+
+
+
+Q-WAP to show Integer Arraylist collection class in java?
+Ans-
+package java_lab;
+ * @author monks_mojo
+public class Java_lab {
+    public static void main(String[] args) {
+       Collection_classes cc=new Collection_classes();
+       cc.Integer_ArrayList();
+}
+package java_lab;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.TreeSet;
+public class Collection_classes {
+          ArrayList <String> al1 = new ArrayList();
+    
+    void Integer_ArrayList(){
+        ArrayList <Integer> ai1 = new ArrayList();
+        System.out.println("adding 4 element into  Integer arraylist 1");
+        ai1.add(2);
+        ai1.add(4);
+        ai1.add(6);
+        ai1.add(8);
+        System.out.println("Size of ArrayList 1= "+ai1.size());
+        System.out.println("printing content of arraylist 1");
+        System.out.println(ai1);
+        System.out.println("adding element at perticular index");
+        ai1.add(1,1);
+        System.out.println("Size of ArrayList 1= "+ai1.size());
+        System.out.println("printing content of arraylist 1");
+        System.out.println(ai1);
+        System.out.println("Creating a second ArrayList same size as first ArrayList");
+        ArrayList <Integer> ai2 = new ArrayList(ai1.size());
+        System.out.println("adding 4 element into  Integer arraylist 2");
+        ai2.add(12);
+        ai2.add(14);
+        ai2.add(16);
+        ai2.add(18);
+        System.out.println("Size of ArrayList 2= "+ai2.size());
+        System.out.println("printing content of arraylist 2");
+        System.out.println(ai2);
+        System.out.println("Converting first ArrayList into array to find sum of element");
+        Integer[] arr= new Integer[ai1.size()];
+        arr=ai1.toArray(arr);
+        int sum=0;
+        System.out.println("elements of array");
+        for (Integer arr1 : arr) {
+            System.out.println(arr1);
+            sum += arr1;
+     }
+        System.out.println("Sum of Elements");
+        System.out.println(sum);
+    }
+   }
+ 
+
+
+
+
+
+
+
+Q-WAP to show String Arraylist collection class in java and print element 
+using iterator and for each loop?
+Ans-
+package java_lab;
+* @author monks_mojo
+public class Java_lab {
+    public static void main(String[] args) {
+       Collection_classes cc=new Collection_classes();
+       cc.String_ArrayList();
+       cc.iterator_print();
+      cc.foreach_print();
+}
+package java_lab;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.TreeSet;
+public class Collection_classes {
+     ArrayList <String> al1 = new ArrayList();
+  void String_ArrayList(){
+System.out.println("adding 5 element into arraylist");
+        al1.add("jhon");
+        al1.add("watson");
+        al1.add("mayer");
+        al1.add("trovolta");
+        al1.add("kennedy");
+        System.out.println("Size of ArrayList= "+al1.size());
+        System.out.println("printing content of arraylist");
+        System.out.println(al1);
+        System.out.println("adding element at perticular index");
+        al1.add(1,"sherlock");
+        System.out.println("Size of ArrayList= "+al1.size());
+        System.out.println("printing content of arraylist");
+        System.out.println(al1);
+        System.out.println("removing the element from ArrayList");
+        al1.remove("kennedy");
+        al1.remove("trovolta");
+        System.out.println("Size of ArrayList= "+al1.size());
+        System.out.println("printing content of arraylist");
+        System.out.println(al1);
+        
+    }
+    
+    void iterator_print(){
+        Iterator it=al1.iterator();
+        System.out.println("printing elements of arraylist with the help of iterator");
+        while(it.hasNext()!=false){
+            System.out.println(it.next());
+        }
+    }
+    
+    void foreach_print(){
+        System.out.println("printing element of arraylist with the help of foreach loop");
+        for(String o: al1){
+            System.out.println(o);
+        }
+    }
+ 
+
+
+
+
+
+
+
+
+
+Q-WAP to show  Likedlist, Hashset  & Treeset collection class in java ?
+Ans-
+void String_LinkedList(){
+        System.out.println("creating a linkedlist");
+        LinkedList <String> ll1=new LinkedList();
+        System.out.println("adding 5 elemennts to linkedlist");
+        ll1.addFirst("Kurt");
+        ll1.push("eminem");
+        ll1.add("jimmy");
+        ll1.add(0,"JIMI");
+        ll1.addLast("Robert");
+        System.out.println("elements in the list");
+        System.out.println(ll1);
+        System.out.println("first element"+ ll1.getFirst());
+        System.out.println("last element"+ll1.getLast());
+        System.out.println("size of linked list"+ll1.size());
+        System.out.println("Removing of second element");
+        ll1.remove(2);
+        System.out.println("size of linked list after removing 1 element"+ll1.size());
+        System.out.println("elements in the final list");
+        System.out.println(ll1);
+    }
+    
+    
+    
+    void Integer_Hashset(){
+       HashSet<Integer> hs= new HashSet();
+       System.out.println("A HashSet");
+       System.out.println("inserting 5 elements");
+       hs.add(2);
+       hs.add(4);
+       hs.add(6);
+       hs.add(8);
+       hs.add(10);
+       System.out.println("printing value of hashset");
+       System.out.println(hs);
+       System.out.println("Floor function");
+   }
+   
+   
+    void Integer_Treeset(){
+       TreeSet<Integer> ts= new TreeSet();
+       System.out.println("A treeSet");
+       System.out.println("inserting 5 elements");
+       ts.add(1);
+       ts.add(3);
+       ts.add(5);
+       ts.add(7);
+       ts.add(9);
+       System.out.println("printing value of Treeset");
+       System.out.println(ts);
+       System.out.println("Floor function  "+ ts.floor(8));
+       System.out.println("higher function  "+ ts.higher(8));
+       System.out.println("lower function  "+ ts.lower(8));
+       System.out.println("Pollfirst function  "+ ts.pollFirst());
+       System.out.println("Polllast function  "+ ts.pollLast());
+       System.out.println("printing value of Treeset after functions");
+       System.out.println(ts);
+   }
+}
+package java_lab;
+
+/**
+ *
+ * @author monks_mojo
+ */
+public class Java_lab {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+       Collection_classes cc=new Collection_classes();
+       cc.String_LinkedList();
+       cc.Integer_Hashset();
+       cc.Integer_Treeset();
+} 
+ 
+
+ 
+
+ 
+
+
+
+
+
+Q-WAP to show  Hashmap, Treemap & Hashtable  collection class in java ?
+
+Ans-
+package java_lab;
+import java.util.*;
+* @author monks_mojo
+public class Collection_classes {
+       void String_Hashmap(){
+        System.out.println("creating a HashMap <String,Double> ");
+        HashMap hm =new HashMap();
+        System.out.println("Inserting data into hashmap");
+        hm.put("clark",15000.35);
+        hm.put("bruce",20000.30);
+        hm.put("steven",10000.85);
+        hm.put("kendric",45000.15);
+        hm.put("tupac",78000.25);
+        System.out.println("key and value of hashmap"+hm);
+        System.out.println("geting only the key values");
+        Set <String> se1=hm.keySet();
+        for(String s: se1){
+        System.out.println(s);
+        }
+        System.out.println("getting account balance of tupac");
+        double bal=(double) hm.get("tupac");
+        bal+=15000;
+        System.out.println("updating account balance of tupac");
+        hm.put("tupac", bal);
+        System.out.println("hashmap elements are updating value");
+        System.out.println(hm);
+    }
+    
+    void String_Treemap(){
+        System.out.println("creating a TreeMap <String,Double> ");
+        TreeMap tm =new TreeMap();
+        System.out.println("Inserting data into treemap");
+        tm.put("david",15000.35);
+        tm.put("jimmi",20000.30);
+        tm.put("dan",10000.85);
+        tm.put("alex",45000.15);
+        tm.put("matt",78000.25);
+        System.out.println("key and value of treemap"+tm);
+        System.out.println("geting only the key values");
+        Set <String> s2=tm.keySet();
+        for(String s: s2){
+        System.out.println(s);
+        }
+        System.out.println("getting account balance of matt");
+        double bal=(double) tm.get("matt");
+        bal+=15000;
+        System.out.println("updating account balance of matt");
+        tm.put("matt", bal);
+        System.out.println("treemap elements are updating value");
+        System.out.println(tm);
+    }
+    
+    void String_Hashtable(){
+        System.out.println("creating a HashTable <String,Double> ");
+        Hashtable ht =new Hashtable();
+        System.out.println("Inserting data into Hashtable ");
+        ht.put("paul",16000.35);
+        ht.put("lenon",21000.30);
+        ht.put("ringo",12000.85);
+        ht.put("jon",41000.15);
+        ht.put("robert",74000.25);
+        System.out.println("key and value of hashmap"+ht);
+        System.out.println("geting only the key values in the enumeration");
+        Enumeration <String> en=ht.keys();
+        while(en.hasMoreElements()){
+            System.out.println(en.nextElement());
+        }
+        System.out.println("getting account balance of robert");
+        double bal;
+        bal = (double) ht.get("robert");
+        System.out.println("old balance of robert"+bal);
+        bal+=15000;
+        System.out.println("new balance of robert"+bal);
+        System.out.println("updating account balance of robert");
+        ht.put("tupac", bal);
+        System.out.println("hashmap elements are updating value");
+        System.out.println(ht);
+    }   
+    }
+}
+ 
+ 
+ 
+Q-WAP to show Properties class in java ?
+Ans-
+public class Java_lab {
+public static void main(String[] args) {
+Collection_classes cc=new Collection_classes();
+cc.state_property();
+}
+package java_lab;
+import java.util.*;
+@author monks_mojo
+public class Collection_classes {
+ void state_property(){
+        Properties pr = new Properties();
+        System.out.println("creating a Properties object");
+        System.out.println("Inserting data into properties <States,Capital> ");
+        pr.put("punjab","chandigarh");
+        pr.put("rajisthan","jaipur");
+        pr.put("madhya pradesh","jaipur");
+        pr.put("sikkim","gangtok");
+        pr.put("tamil nadi","chennai");
+        System.out.println("key and value of hashmap"+pr);
+        System.out.println("geting only the key values in the enumeration");
+        Enumeration en=pr.propertyNames();
+        while(en.hasMoreElements()){
+            System.out.println(en.nextElement());
+        }    }}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q-WAP to show File and Directory list  in a Directory in java ?
+Ans-
+package java_lab;
+
+import java.io.File;
+public class File_Creation {
+public void filecreation(){
+    System.out.println("creating files and directores");
+    File f1 = new File("D:\\directory0");
+    File f2=new File(f1.getPath(),"file1.txt");
+    File f3=new File(f1.getPath(),"file2.txt");
+    File f4=new File(f1.getPath(),"/directory1");
+    System.out.println("all the directories and file in"+ f1.getName()+"parent directory");
+    System.out.println("path of "+ f1.getName()+ " is "+f1.getPath());
+    System.out.println("Absolute path of "+ f1.getName()+ " is "+f1.getAbsolutePath());
+    System.out.println("path of "+ f2.getName()+ " is "+f2.getPath());
+    System.out.println("Absolute path of "+ f2.getName()+ " is "+f2.getAbsolutePath());
+    System.out.println("all the directories and file in"+ f1.getName()+"parent directory");
+        File[] filesList = f1.listFiles();
+        for(File f : filesList){
+            if(f.isDirectory())
+                System.out.println("Is a Directory "+f.getName());
+            if(f.isFile()){
+                System.out.println("Is a file "+f.getName());
+            }
+        }}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q-WAP to show FileInputStream Functions in java ?
+Ans-
+package java_lab;
+mport java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+public class Filefunction {
+    void fis_function0() throws FileNotFoundException{
+    System.out.println("creating files and directores");
+    try{
+    File f1 = new File("?D:\\directory0\\file1.txt");?????
+    FileInputStream fis=new FileInputStream("D:\\directory0\\file1.txt");
+    System.out.println("using the Fileinputstream constructor to read from file");
+    System.out.println("1. read();");
+    int read0=fis.read();
+    System.out.println("no. of characters that are readed from the filr are"+read0);
+    System.out.println("2. read(byte b[]);");
+    int nobyte=fis.available();
+    byte[] text=new byte[nobyte];
+    int read1 = fis.read(text);
+    
+    for(byte b: text){
+        System.out.print((char)b);
+    }
+    
+    }catch(Exception e){
+        System.out.println(e);
+    }
+
+    
+    }
+    
+    void fis_function1() throws FileNotFoundException, IOException{
+    File f1 = new File("?D:\\directory0\\file1.txt");?????
+    FileInputStream fis=new FileInputStream("D:\\directory0\\file1.txt");
+    int no=fis.read();
+    int size=fis.available();
+    System.out.println("part1");
+    System.out.println("no. of character in file"+no);
+    System.out.println("size of file"+size);
+    
+    
+    System.out.println("part 2");
+    System.out.println("save  part of file in byte array");
+    int part=size/4;
+    byte[] text0=new byte[part];
+    int r=fis.read(text0);
+    System.out.println("part of file saved in  byte array which is");
+        for(byte b : text0){
+        System.out.print((char)b);
+    }
+    
+    System.out.println("\n part 3");
+    System.out.println("skip a part of file");
+    fis.skip(part);
+    System.out.println("part of a file skipped");
+    
+    System.out.println("part 4");
+    System.out.println("print a part on screen");
+    byte[] text1=new byte[part];
+    int r1=fis.read(text1);
+    for(byte b : text1){
+        System.out.print((char)b);    }}
+ 
+
+
+Q-WAP to write and read from a file in java?
+Ans-
+package java_lab;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+    void file_copy() throws FileNotFoundException, IOException{
+        
+       try(FileOutputStream fos = new FileOutputStream("D:\\directory0\\\\file2.txt")) {
+           System.out.println("writing into a file");
+             String s="God is woman.";    
+             byte text1[]=s.getBytes();  
+             fos.write(text1);
+             fos.flush();
+             fos.close();
+            System.out.println("data written into file"); 
+             
+             FileInputStream fis=new FileInputStream("D:\\directory0\\file2.txt");
+             System.out.println("Reading from a file");
+             int size=fis.available();
+             byte[] text2=new byte[size+5];
+             fis.read(text2);
+             for(byte b: text2){
+                 System.out.print((char)b);
+             }
+    
+       }catch(Exception e){
+           System.out.println(e);
+       }
+       System.out.println("\nsuccess...");
+  }
+}
+
+ 
+
+
+
+
+
+
+
+
+
+Q-WAP to read from a file to a byte array and write the byte array to 
+another file using ByteArrayOutputStream.
+Ans-
+package java_lab;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+    void ByteArrayStream() throws IOException{
+        System.out.println("BYTEARRAYOUTPUT STREAM");
+        FileInputStream fis=new FileInputStream("D:\\directory0\\file2.txt");
+        System.out.println("Reading from a file to Byte Array");
+        int size=fis.available();
+        byte[] bs0=new byte[size+5];
+        fis.read(bs0);
+        ByteArrayOutputStream BAOS=new ByteArrayOutputStream();
+        System.out.println("writimg a Byte Array to BYTE_ARRAY_OUTPUT_STREAM");
+        BAOS.write(bs0);
+        System.out.println("extracting from  BYTE_ARRAY_OUTPUT_STREAM");
+        byte[] ba=BAOS.toByteArray();
+        for(byte b :ba){
+            System.out.print((char)b);
+        }
+        
+        System.out.println("BYTEARRAYINPUT STREAM");
+        System.out.println("creating BYTE_ARRAY_INPUT_STREAM");
+        int c;
+        System.out.println("reading from a byte Array");
+        ByteArrayInputStream BAIS=new ByteArrayInputStream(bs0);
+        while((c=BAIS.read())!=-1){
+            System.out.println((char)c);
+        }
+    }
+}
+package java_lab;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+* @author monks_mojo
+public class Java_lab {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
+        Filefunction ff1=new Filefunction();
+        ff1.ByteArrayStream();
+}
+}
+ 
+
+Q-WAP to write and read using  DataInputStream and 
+DataOutputStream.
+Ans-
+package java_lab;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
+    void DataStream() throws IOException{
+        System.out.println("program to show DATA OUTPUT STREAM");
+        DataOutputStream DOS=new DataOutputStream(new 
+FileOutputStream("D:\\directory0\\file1.txt"));
+        System.out.println("Writing int");
+        DOS.writeInt(10);
+        System.out.println("Writing double");
+        DOS.writeDouble(12.56);
+        System.out.println("Writing string");
+        DOS.writeUTF("The chain Breakers");
+        DOS.close();
+        System.out.println("program to show DATA INPUT STREAM");
+        DataInputStream DIS=new DataInputStream(new FileInputStream("D:\\directory0\\file1.txt"));
+        System.out.println("Reading int");
+        System.out.println(DIS.readInt());
+        System.out.println("Reading double");
+        System.out.println(DIS.readDouble());
+        System.out.println("Reading String");
+        System.out.println(DIS.readUTF());
+        DIS.close();
+    }
+package java_lab;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+* @author monks_mojo
+public class Java_lab {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
+        Filefunction ff1=new Filefunction();
+        ff1.DataStream();
+}
+}
+ 
+
+
+Q-WAP to searialize and deserialize Object using Serialzable Interface.
+package java_lab;
+mport java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+class Employee implements Serializable {
+    public String ename;
+    public int eno;
+    public String edesignation;
+    Employee(String ename, int eno,String edesignation){
+        this.ename=ename;
+        this.eno=eno;
+        this.edesignation=edesignation;
+    }
+    @Override
+    public String toString(){
+        return String.format("employee name"+ename+"employee designation"+eno+"employee 
+designation"+edesignation);
+    }
+}  
+  void ObjectStream() throws IOException, ClassNotFoundException{
+        ObjectOutputStream oos=new ObjectOutputStream(new 
+FileOutputStream("D:\\directory0\\file3.txt"));
+        Employee akshita=new Employee("akshita",001,"Captain");
+        oos.writeObject(akshita);
+        System.out.println("Object has been written/ searlized");
+        ObjectInputStream ois=new ObjectInputStream(new FileInputStream("D:\\directory0\\file3.txt"));
+        Employee ak=null;
+        System.out.println("DeSerializing reading from employee records");
+        ak=(Employee)ois.readObject();
+        System.out.println(ak);
+    }
+}
+package java_lab;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+* @author monks_mojo
+public class Java_lab {
+
+    public static void main(String[] args) throws FileNotFoundException, IOException, 
+ClassNotFoundException {
+        Filefunction ff1=new Filefunction();
+        ff1.ObjectStream();
+}
+}
+ 
+Q-WAP to retrive the Ineternet Address of a website and get all the 
+addresses associated with the host name?
+Ans-
+package java_lab;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+* @author monks_mojo
+public class Java_lab {
+    public static void main(String[] args) throws UnknownHostException {
+        try{
+        System.out.println("getByName()");
+        InetAddress ina = InetAddress.getByName("www.google.com");
+        System.out.println(ina);
+        System.out.println("Host Name: "+ina.getHostName());  
+        System.out.println("IP Address: "+ina.getHostAddress());  
+}catch(UnknownHostException ue){
+            System.out.println(ue);
+        }
+        }
+
+ 
+
+
+Q-WAP to add button to a frame and set the layout to FlowLayout.
+Ans-
+package java_lab;
+import javax.swing.*;
+import java.awt.*;
+@author xenos martin
+public class Java_Awt {
+    public static void button_frames(){
+        Frame f1=new JFrame();
+        Label l1=new Label("DO YOU LIKE MCA IN LBSIM");
+        f1.add(l1);
+        f1.setLayout(new FlowLayout(FlowLayout.LEADING));
+        Button b1=new Button("ARE YOU KIDDIND ME");
+        Button b2=new Button("NO");
+        Button b3=new Button("HELL NO");
+        
+        f1.add(b1);
+        f1.add(b2);
+        f1.add(b3);
+        f1.setLayout(new FlowLayout(FlowLayout.LEFT));
+        f1.setSize(300,300);
+        f1.setVisible(true);
+    } 
+
+
+
+public static void main(String[] args) {
+Java_Awt.button_frames()
+}
+}
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+Q-WAP to add button to a frame and set the layout to Borderlayout.
+Ans-
+package java_lab;
+import javax.swing.*;
+import java.awt.*;
+public class Java_Awt {
+    public static void button_frames2(){
+        JFrame f2=new JFrame();
+        JLabel jl1=new JLabel("BorderLayout");
+        JButton jb1=new JButton("NORTH");
+        JButton jb2=new JButton("SOUTH");
+        JButton jb3=new JButton("EAST");
+        JButton jb4=new JButton("WEST");
+        JButton jb5=new JButton("CENTER");
+        
+        f2.add(jl1);
+        f2.add(jb1,BorderLayout.NORTH);
+        f2.add(jb2,BorderLayout.SOUTH);
+        f2.add(jb3,BorderLayout.EAST);
+        f2.add(jb4,BorderLayout.WEST);
+        f2.add(jb5,BorderLayout.CENTER);
+        
+        f2.setSize(300,300);
+        f2.setVisible(true);
+    }
+    }
+package java_lab;
+* @author monks_mojo
+public class Java_lab {
+ public static void main(String[] args) {
+        Java_Awt.button_frames2();
+}
+ 
+
+
+
+
+
+
+
+
+
+
+Q-WAP to add button to a frame and set the layout to GridLayout.
+Ans-
+package java_lab;
+* @author monks_mojo
+public class Java_lab {
+    public static void main(String[] args) {
+       Java_Awt.button_freames3();
+}
+}     
+package java_lab;
+import javax.swing.*;
+import java.awt.*;
+public class Java_Awt {
+ public static void button_freames3(){
+        JFrame jf3=new JFrame();
+        Label l3=new Label("GRID LAYOUT");
+        String name;
+        jf3.add(l3);
+        for(int i=0; i<10; i++){
+            name=String.format("%d",i+1);
+            jf3.add(new Button(name));
+        }
+        jf3.setLayout(new GridLayout(3,5,2,2));
+        jf3.setSize(400,400);
+        jf3.setVisible(true);
+    }}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q-WAP to checkbox function in jawa AWT.
+Ans-
+package java_lab;
+import static com.sun.java.accessibility.util.AWTEventMonitor.addItemListener;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+* @author xenos martin
+public class Java_Awt implements ActionListener,ItemListener {
+        JFrame f4;
+        Checkbox c1,c2,c3,c4,c5,c6;
+        Button b1,b2;
+        Panel p1,p2,p3,p4,p5;
+        Label l1,l2,l3,l4;
+        CardLayout c= new CardLayout();
+        String msg="";
+    public void Card_action(){
+        f4=new JFrame("Operating System");
+        f4.setLayout(new GridLayout(3,1));
+        p1=new Panel(new FlowLayout());
+        f4.add(p1);
+        b1=new Button("Windows");
+        b2=new Button("Other");
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        p1.add(b1,Component.CENTER_ALIGNMENT);
+        p1.add(b2,Component.CENTER_ALIGNMENT);
+        
+        p2=new Panel(new GridLayout());
+        c1=new Checkbox("Window XP",true);
+        c2=new Checkbox("WINDOWS 7");
+        c3=new Checkbox("WINDOWS 10");
+        c1.addItemListener(this);
+        c2.addItemListener(this);
+        c3.addItemListener(this);
+        p2.add(c1);
+        p2.add(c2);
+        p2.add(c3);
+        
+        p3=new Panel(new GridLayout());
+        
+        c4=new Checkbox("Ubuntu",true);
+        c5=new Checkbox("Fedora");
+        c6=new Checkbox("Android");
+        c4.addItemListener(this);
+        c5.addItemListener(this);
+        c6.addItemListener(this);
+        p3.add(c4);
+        p3.add(c5);
+        p3.add(c6);
+        
+        p4=new Panel(c);
+        p4.add(p3);
+        p4.add(p2);
+        f4.add(p4);
+        l1 = new Label("You have SELECTED: ");
+        l2 = new Label("");
+        l3 = new Label("");
+        l4 = new Label(" ");
+        
+        p5 = new Panel(new GridLayout(1,2));
+        p5.add(l1,Component.LEFT_ALIGNMENT);
+        p5.add(l2,Component.LEFT_ALIGNMENT);
+        p5.add(l3,Component.LEFT_ALIGNMENT);
+        p5.add(l4,Component.CENTER_ALIGNMENT);
+        f4.add(p5);
+        f4.setVisible(true);
+        f4.setSize(500,400);
+  }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        c.next(p4);
+        msg=" ";
+        l2.setText(msg);
+  
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent i) {
+    Checkbox c = (Checkbox)i.getSource();
+        if(c==c1||c==c4){
+            l2.setText(" ");
+            if(i.getStateChange()==1){
+                l2.setText(((Checkbox) i.getSource()).getLabel());
+            }else if(i.getStateChange()==0){
+                l2.setText(" ");
+            }
+        }
+        if(c==c2||c==c5){
+            l3.setText(" ");
+            if(i.getStateChange()==1){
+                l3.setText(((Checkbox) i.getSource()).getLabel());
+            }else if(i.getStateChange()==0){
+                l3.setText(" ");
+            }
+        }
+        if(c==c3||c==c6){
+            l4.setText(" ");
+            if(i.getStateChange()==1){
+                l4.setText(((Checkbox) i.getSource()).getLabel());
+            }else if(i.getStateChange()==0){
+                l4.setText(" ");
+            }  } } }
+
+    public static void main(String[] args) throws UnknownHostException,FileNotFoundException, 
+IOException, ClassNotFoundException {
+          Java_Awt jw=new Java_Awt();
+          jw.Card_action();
+
+  
+ 
+
+Q-client server tcp/ip programme?
+Server program:
+
+
+import java.io.IOException;
+import java.io.PrintStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class server1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		try(ServerSocket ss = new ServerSocket(90);) {
+			System.out.println("started");
+			String loginName , temp;
+			while(true)
+			{
+				Socket s1 = ss.accept();
+				Scanner sc = new Scanner(s1.getInputStream());
+				loginName = sc.nextLine();
+				PrintStream p = new PrintStream(s1.getOutputStream());
+				if(loginName.equals("yollo"))
+				{
+					temp = "oops!"+loginName;
+					p.println(temp);
+				}else
+				{
+					temp = "Hello "+loginName+"!";
+					p.println(temp);
+				}
+				
+			}
+			
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		
+	}
+
+}
+
+Client program:
+
+
+import java.io.IOException;
+import java.io.PrintStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+public class client1 {
+	public static void main(String args[]) throws UnknownHostException, IOException
+	{
+		String loginName,temp;
+		Scanner sc = new Scanner(System.in);
+		Socket s = new Socket("127.0.0.1",90);//127.0.0.1 is local host ip address.
+		Scanner sc1 = new Scanner (s.getInputStream());//connected to server for response
+		System.out.println("ENTER LOGIN NAME");
+		loginName =sc.nextLine();
+		PrintStream p = new PrintStream(s.getOutputStream());//connected to server for 
+sending requests
+		p.println(loginName);
+		temp = sc1.nextLine();
+		System.out.println(temp);
+		
+	}
+}
+
+Output:
+ 
+ 
+
+
